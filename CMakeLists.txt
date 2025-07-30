@@ -17,21 +17,20 @@ endif()
 set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
-# Find all C++ source files (these get compiled)
-file(GLOB SOURCES 
+# Find all C++ source files recursively in src/ and subdirectories
+file(GLOB_RECURSE SOURCES 
     "src/*.cpp"
     "src/*.cxx" 
     "src/*.cc"
     "src/*.c++"
     "src/*.cp"
-    "src/*.c"
 )
 
-# Find all C source files if you have any
-file(GLOB C_SOURCES "src/*.c")
+# Find all C source files recursively if you have any
+file(GLOB_RECURSE C_SOURCES "src/*.c")
 
-# Find header files (for IDE support, not compilation)
-file(GLOB HEADERS 
+# Find header files recursively (for IDE support, not compilation)
+file(GLOB_RECURSE HEADERS 
     "src/*.hh"
     "src/*.hpp"
     "src/*.hxx"
